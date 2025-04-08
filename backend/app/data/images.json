@@ -1,0 +1,6 @@
+[
+    {"id": 1, "description": "A lone figure on a mountain gazing at the Milky Way solemnly", "labels": ["mountain", "milky way", "solitude", "night"]},
+    {"id": 2, "description": "A joyful family welcoming a newborn under a bright sky", "labels": ["family", "newborn", "joy", "daylight"]},
+    {"id": 3, "description": "An adventurer crossing a desert with hope in their eyes", "labels": ["desert", "adventure", "hope", "travel"]},
+    {"id": 4, "description": "A starry night over a calm lake with a reflective mood", "labels": ["lake", "stars", "night", "calm"]}
+]
