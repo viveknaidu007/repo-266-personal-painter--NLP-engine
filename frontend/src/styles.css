@@ -17,7 +17,7 @@
     margin-bottom: 10px;
   }
   
-  .user { color: blue; }
+  .user { color: rgb(93, 93, 240); }
   input, select, button {
     margin: 5px;
     padding: 5px;

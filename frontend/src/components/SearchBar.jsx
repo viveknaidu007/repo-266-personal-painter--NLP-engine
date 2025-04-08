@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './SearchBar.css';  // New CSS file
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
@@ -27,15 +28,15 @@ const SearchBar = () => {
       </select>
       <button onClick={performSearch}>Search</button>
       {results.length > 0 && (
-        <div>
+        <div className="response">
           <h3>Results:</h3>
           <ul>
             {results.map((result, idx) => (
               <li key={idx}>
                 {searchType === 'image' ? (
-                  `${result.description} (Score: ${result.score})`
+                  `${result.description} (Score: ${result.score.toFixed(2)})`
                 ) : (
-                  `Collection ${result.collection_id} (Avg Score: ${result.avg_score})`
+                  `Collection ${result.collection_id} (Avg Score: ${result.avg_score.toFixed(2)})`
                 )}
               </li>
             ))}

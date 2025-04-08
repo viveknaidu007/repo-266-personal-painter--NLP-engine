@@ -6,7 +6,7 @@ class ChatMessage(BaseModel):
 
 class ChatResponse(BaseModel):
     prompt: str
-    images: List[str]  # Simulated image URLs
+    images: List[str] = []  # Default to empty list
 
 class SearchRequest(BaseModel):
     query: str

@@ -4,14 +4,18 @@ from app.services.search_engine import search_images, search_collections
 
 router = APIRouter()
 
-@router.post("/search", response_model=SearchResponse)
+@router.post("", response_model=SearchResponse)
 async def search(request: SearchRequest):
-    if request.search_type not in ["image", "collection"]:
-        raise HTTPException(status_code=400, detail="Invalid search_type")
-    if request.search_type == "image":
-        results = search_images(request.query)
-        formatted_results = [ImageResult(**r) for r in results]
-    else:
-        results = search_collections(request.query)
-        formatted_results = [CollectionResult(**r) for r in results]
-    return SearchResponse(results=formatted_results)
+    try:
+        if request.search_type not in ["image", "collection"]:
+            raise HTTPException(status_code=400, detail="Invalid search_type")
+        if request.search_type == "image":
+            results = search_images(request.query)
+            formatted_results = [ImageResult(**r) for r in results]
+        else:
+            results = search_collections(request.query)
+            formatted_results = [CollectionResult(**r) for r in results]
+        return SearchResponse(results=formatted_results)
+    except Exception as e:
+        print(f"Error in search: {e}")
+        raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")

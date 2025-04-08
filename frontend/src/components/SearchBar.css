@@ -1,0 +1,24 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+  }
+  
+  input, select, button {
+    margin: 5px;
+    padding: 5px;
+    width: 80%;
+    max-width: 300px;
+  }
+  .response {
+    width: 80%;
+    margin-top: 20px;
+    padding: 10px;
+    background: #555;
+    border-radius: 5px;
+  }

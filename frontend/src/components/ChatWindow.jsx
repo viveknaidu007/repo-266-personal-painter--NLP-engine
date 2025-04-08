@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './ChatWindow.css';
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [prompt, setPrompt] = useState('');
-  const [images, setImages] = useState([]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
     setMessages([...messages, { text: input, sender: 'user' }]);
-    const response = await axios.post('/api/chat', { message: input });
-    setPrompt(response.data.prompt);
-    setImages(response.data.images);
+    try {
+      console.log('Sending request to /api/chat with:', { message: input });
+      const response = await axios.post('http://localhost:8000/api/chat', { message: input }, {
+        headers: { 'Content-Type': 'application/json' }
+      });
+      console.log('Response received:', response.data);
+      setPrompt(response.data.prompt || 'No prompt generated');
+    } catch (error) {
+      console.error('Error:', error.message, error.response?.data);
+      setPrompt(`Error: ${error.message}`);
+    }
     setInput('');
   };
 
@@ -20,7 +28,6 @@ const ChatWindow = () => {
     await axios.get('/api/chat/reset-chat');
     setMessages([]);
     setPrompt('');
-    setImages([]);
   };
 
   return (
@@ -39,22 +46,10 @@ const ChatWindow = () => {
       />
       <button onClick={sendMessage}>Send</button>
       <button onClick={resetChat}>Reset</button>
-      {prompt && (
-        <div>
-          <h3>Generated Prompt:</h3>
-          <p>{prompt}</p>
-        </div>
-      )}
-      {images.length > 0 && (
-        <div>
-          <h3>Generated Images:</h3>
-          <ul>
-            {images.map((img, idx) => (
-              <li key={idx}>{img}</li> // Replace with <img> if real URLs
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="response-area">
+        <h3>Generated Prompt:</h3>
+        <div className="response">{prompt || 'Waiting for response...'}</div>
+      </div>
     </div>
   );
 };
