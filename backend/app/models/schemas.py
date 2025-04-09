@@ -3,6 +3,7 @@ from typing import List
 
 class ChatMessage(BaseModel):
     message: str
+    conversation: List[str] = []  # Optional field for multi-turn conversation history
 
 class ChatResponse(BaseModel):
     prompt: str

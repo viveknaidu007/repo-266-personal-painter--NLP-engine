@@ -1,71 +1,88 @@
-/* Reset default margins and set body background to black */
 body {
-    margin: 0;
-    background-color: #000; /* Solid black background for the entire page */
-    color: white;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Chat container styling */
-  .chat-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #222; /* Slightly lighter black for the container to distinguish it */
-    min-height: 500px; /* Ensure enough vertical space */
-    width: 80%;
-    max-width: 600px;
-    margin: 20px auto; /* Center the container */
-  }
-  
-  /* Messages area */
-  .messages {
-    width: 80%;
-    max-height: 200px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    background: #333; /* Dark gray for messages to contrast with container */
-    padding: 10px;
-  }
-  
-  .user {
-    color: #1e90ff; /* Blue for user messages */
-  }
-  
-  /* Input and buttons */
-  input, button {
-    margin: 5px;
-    padding: 5px;
-    width: 80%;
-    max-width: 300px;
-  }
-  
-  button {
-    background-color: #444; /* Dark button background */
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #555; /* Slightly lighter on hover */
-  }
-  
-  /* Response area */
-  .response-area {
-    width: 80%;
-    margin-top: 20px;
-    padding: 10px;
-    background: #444; /* Dark background for response area */
-    border-radius: 5px;
-    min-height: 100px; /* Reserved space for response */
-    word-wrap: break-word;
-  }
-  
-  .response {
-    margin-top: 5px;
-    color: #fff;
-  }
+  margin: 0;
+  background-color: #000; /* Solid black background */
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #222;
+  min-height: 700px; /* Increased for images and search */
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.messages {
+  width: 80%;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  background: #333;
+  padding: 10px;
+}
+
+.user {
+  color: #1e90ff;
+}
+
+input, button, select {
+  margin: 5px;
+  padding: 5px;
+  width: 80%;
+  max-width: 300px;
+}
+
+button {
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.response-area {
+  width: 80%;
+  margin-top: 20px;
+  padding: 10px;
+  background: #444;
+  border-radius: 5px;
+  min-height: 100px;
+  word-wrap: break-word;
+}
+
+.response {
+  margin-top: 5px;
+  color: #fff;
+}
+
+.image-gallery {
+  width: 80%;
+  margin-top: 20px;
+  padding: 10px;
+  background: #444;
+  border-radius: 5px;
+  min-height: 100px;
+}
+
+.image-gallery img {
+  margin: 5px;
+}
+
+.search-container {
+  width: 80%;
+  margin-top: 20px;
+  padding: 10px;
+  background: #444;
+  border-radius: 5px;
+  min-height: 100px;
+}

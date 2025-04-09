@@ -11,10 +11,10 @@ async def search(request: SearchRequest):
             raise HTTPException(status_code=400, detail="Invalid search_type")
         if request.search_type == "image":
             results = search_images(request.query)
-            formatted_results = [ImageResult(**r) for r in results]
+            formatted_results = [ImageResult(**r) for r in results[:20]]  # Top 20
         else:
             results = search_collections(request.query)
-            formatted_results = [CollectionResult(**r) for r in results]
+            formatted_results = [CollectionResult(**r) for r in results[:5]]  # Top 5
         return SearchResponse(results=formatted_results)
     except Exception as e:
         print(f"Error in search: {e}")
